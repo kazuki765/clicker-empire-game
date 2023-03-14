@@ -1,0 +1,13 @@
+div.flex {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+  height: 100%;
+
+  & > div {
+    min-width: calc(50% - 0.5rem);
+  }
+}
+
+@container (max-width: 650) {
+}

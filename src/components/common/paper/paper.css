@@ -1,0 +1,14 @@
+div {
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  color: var(--dark-white);
+
+  &.light {
+    background-color: var(--light-black);
+  }
+
+  &.dark {
+    background-color: var(--dark-black);
+  }
+}
