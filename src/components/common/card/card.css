@@ -1,0 +1,11 @@
+div {
+  display: flex;
+  width: 30rem;
+  min-width: 20rem;
+
+  background-color: var(--light-white);
+  color: var(--dark-grey);
+  border-radius: 1rem;
+  filter: drop-shadow(0.5rem 0.5rem 0.5rem black);
+  padding: 2rem;
+}

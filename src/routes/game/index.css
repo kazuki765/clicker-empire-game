@@ -1,0 +1,48 @@
+div {
+  &.flex {
+    display: flex;
+    gap: 1rem;
+    flex: 10;
+    flex-wrap: wrap;
+    min-width: 700px;
+    height: 100%;
+    margin: 1rem;
+  }
+
+  &.right {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    gap: 1rem;
+    flex: 6;
+    & > div {
+      &:nth-child(1) {
+        flex-grow: 2;
+      }
+
+      &:nth-child(2) {
+        flex-grow: 3;
+        max-height: 32rem;
+      }
+
+      &:nth-child(3) {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &.left {
+    display: flex;
+    gap: 1rem;
+    flex: 4;
+  }
+}
+
+div.wrapper {
+  max-height: 40rem;
+
+  & div.purchase-list {
+    max-height: 100%;
+    overflow-y: auto;
+  }
+}

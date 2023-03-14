@@ -1,0 +1,12 @@
+header,
+footer {
+  height: 1rem;
+  background-color: var(--dark-white);
+}
+div.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 2rem);
+  background-color: var(--light-black);
+}
