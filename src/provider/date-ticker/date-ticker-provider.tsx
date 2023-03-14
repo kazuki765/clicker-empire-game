@@ -15,7 +15,7 @@ export default component$(() => {
   useVisibleTask$(() => {
     const interval = setInterval(() => {
       state.elapsedDate++;
-    }, 100);
+    }, 1000);
 
     return () => clearInterval(interval);
   });

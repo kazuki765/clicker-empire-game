@@ -10,7 +10,7 @@ export const PurchasedItemsContext = createContextId<PurchasedItemsState>(
   "purchased-items-provider"
 );
 
-interface PurchasedItemsState {
+export interface PurchasedItemsState {
   flipMachine: number;
   etfStock: number;
   etfBonds: number;
@@ -27,8 +27,8 @@ interface PurchasedItemsState {
 export default component$(() => {
   const state = useStore<PurchasedItemsState>({
     flipMachine: 0,
-    etfStock: 0,
-    etfBonds: 0,
+    etfStock: 5,
+    etfBonds: 2,
     lemonadeStand: 0,
     iceCreamTruck: 0,
     house: 0,
