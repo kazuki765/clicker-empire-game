@@ -1,3 +1,51 @@
+div.wrapper.list {
+  cursor: pointer;
+}
+
+div.flex-wrapper {
+  display: flex;
+  flex: 10;
+  transition: all 0.5s ease;
+
+  & > figure {
+    flex: 2;
+  }
+
+  & > div {
+    flex: 8;
+  }
+}
+
 div.flex {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+form {
+  margin: 1rem;
+  & > div.item-info > * {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+  }
+
+  & > p {
+    margin-top: 1rem;
+  }
+
+  & > input {
+    display: block;
+    line-height: 1.5;
+    width: 20rem;
+  }
+
+  & > div.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
 }

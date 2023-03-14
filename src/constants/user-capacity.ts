@@ -5,6 +5,7 @@ export const UserCapacity = {
   LemonadeStand: 1000,
   IceCreamTruck: 500,
   House: 100,
+  TownHouse: 50,
   Mansion: 20,
   IndustrialSpace: 10,
   HotelSkyscraper: 5,

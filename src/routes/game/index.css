@@ -35,6 +35,7 @@ div {
     display: flex;
     gap: 1rem;
     flex: 4;
+    min-width: 100px;
   }
 }
 
