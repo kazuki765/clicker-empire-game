@@ -8,7 +8,7 @@ import {
 
 interface UserState {
   user: {
-    age: number;
+    initialAge: number;
     name: string;
   };
 }
@@ -17,7 +17,7 @@ export const UserContext = createContextId<UserState>("user-context");
 export default component$(() => {
   const state = useStore<UserState>({
     user: {
-      age: 20,
+      initialAge: 20,
       name: "",
     },
   });

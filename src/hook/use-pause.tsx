@@ -1,4 +1,4 @@
-import { DateTickerContext } from "~/provider/date-ticker/date-ticker-provider";
+import { DateTickerContext } from "~/store/date-ticker/date-ticker-provider";
 import { useContext, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 
 export const usePause = () => {

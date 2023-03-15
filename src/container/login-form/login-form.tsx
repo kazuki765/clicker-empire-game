@@ -19,8 +19,7 @@ export default component$(() => {
         preventdefault:submit={true}
         onSubmit$={() => {
           if (!userName.value) return;
-          setName(userName.value);
-          setTimeout(() => {
+          setName(userName.value).then(() => {
             navigate("/game");
           });
         }}

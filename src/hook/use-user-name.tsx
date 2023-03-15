@@ -1,5 +1,5 @@
 import { useContext, $ } from "@builder.io/qwik";
-import { UserContext } from "~/provider/user/user-provider";
+import { UserContext } from "~/store/user/user-provider";
 
 export const useUserName = () => {
   const userContext = useContext(UserContext);

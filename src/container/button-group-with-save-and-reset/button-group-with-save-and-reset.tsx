@@ -1,19 +1,21 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import IconButton from "~/components/common/icon-button/icon-button";
 import style from "./button-group-with-save-and-reset.css?inline";
-import { useSave } from "~/hook/use-save";
+import { useSaveData } from "~/hook/use-save-data";
 
 export default component$(() => {
   useStylesScoped$(style);
 
-  const save = useSave();
+  const [, save, reset] = useSaveData();
 
   return (
     <div class="container">
       <IconButton
         type="button"
         size="large"
-        onClick$={() => {}}
+        onClick$={() => {
+          reset();
+        }}
         color="gray"
         icon="reset"
         position="left"
