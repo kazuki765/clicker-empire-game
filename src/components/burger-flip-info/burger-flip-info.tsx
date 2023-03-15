@@ -1,5 +1,6 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import style from "./burger-flip-info.css?inline";
+import Integer from "../common/integer/integer";
 
 interface Props {
   flipPrice: number;
@@ -10,8 +11,12 @@ export default component$(({ flipPrice, flapCount }: Props) => {
 
   return (
     <div>
-      <h3>{flapCount} Burgers </h3>
-      <p>one click: ¥ {flipPrice}</p>
+      <h3>
+        <Integer num={flapCount}></Integer> Burgers
+      </h3>
+      <p>
+        one click: ¥ <Integer num={flipPrice}></Integer>
+      </p>
     </div>
   );
 });

@@ -3,6 +3,7 @@ import { component$, useVisibleTask$, createContextId } from "@builder.io/qwik";
 
 interface TickerState {
   elapsedDate: number;
+  running: boolean;
 }
 export const DateTickerContext = createContextId<TickerState>(
   "date-ticker-context"
@@ -11,10 +12,14 @@ export const DateTickerContext = createContextId<TickerState>(
 export default component$(() => {
   const state = useStore<TickerState>({
     elapsedDate: 0,
+    running: false,
   });
+
   useVisibleTask$(() => {
     const interval = setInterval(() => {
-      state.elapsedDate++;
+      if (state.running) {
+        state.elapsedDate++;
+      }
     }, 1000);
 
     return () => clearInterval(interval);

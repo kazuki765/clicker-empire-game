@@ -1,7 +1,7 @@
 import { useContext, $ } from "@builder.io/qwik";
-import { WalletContext } from "../provider/wallet/wallet-provider";
+import { WalletContext } from "../store/wallet/wallet-provider";
 import { useFlipPrice } from "./use-flip-price";
-import { FlapCountContext } from "~/provider/flap-count/flap-count-provider";
+import { FlapCountContext } from "~/store/flap-count/flap-count-provider";
 
 export const useFlipHamburger = () => {
   const walletContext = useContext(WalletContext);
@@ -9,7 +9,7 @@ export const useFlipHamburger = () => {
   const flipPrice = useFlipPrice();
 
   const flip = $(() => {
-    walletContext.amount += flipPrice;
+    walletContext.amount += flipPrice.value;
     flapCountContext.count++;
   });
 

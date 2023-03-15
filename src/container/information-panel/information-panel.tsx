@@ -9,7 +9,7 @@ import AgeDisplay from "~/components/game-info/age-display/age-display";
 import UserName from "~/components/game-info/user-name/user-name";
 import DateDisplay from "~/components/game-info/date-display/date-display";
 import WalletDisplay from "~/components/game-info/wallet-display/wallet-display";
-import { WalletContext } from "~/provider/wallet/wallet-provider";
+import { WalletContext } from "~/store/wallet/wallet-provider";
 import { useNavigate } from "@builder.io/qwik-city";
 import { useUserName } from "../../hook/use-user-name";
 import { useUserAge } from "../../hook/use-user-age";
@@ -39,7 +39,7 @@ export default component$(() => {
         <UserName name={userName}></UserName>
       </div>
       <div>
-        <AgeDisplay age={userAge}></AgeDisplay>
+        <AgeDisplay age={userAge.value}></AgeDisplay>
       </div>
       <div>
         <DateDisplay elapsedDate={elapsedDate}></DateDisplay>

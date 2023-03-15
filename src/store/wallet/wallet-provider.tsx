@@ -11,7 +11,7 @@ interface WalletState {
 }
 export const WalletContext = createContextId<WalletState>("wallet-context");
 export default component$(() => {
-  const state = useStore<WalletState>({ amount: 50000 });
+  const state = useStore<WalletState>({ amount: 10000000000 });
 
   useContextProvider(WalletContext, state);
   return <Slot />;

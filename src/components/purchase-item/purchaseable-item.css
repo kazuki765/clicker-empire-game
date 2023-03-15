@@ -1,14 +1,21 @@
 div.wrapper.list {
-  cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 div.flex-wrapper {
   display: flex;
   flex: 10;
+  gap: 1rem;
   transition: all 0.5s ease;
 
   & > figure {
     flex: 2;
+
+    & > img {
+      width: 5rem;
+    }
   }
 
   & > div {
@@ -20,15 +27,31 @@ div.flex {
   display: flex;
   justify-content: space-between;
   width: 100%;
+
+  & + div.flex {
+    margin-top: 1rem;
+  }
 }
 
 form {
   margin: 1rem;
-  & > div.item-info > * {
+  & > div.item-info {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    height: 100%;
+    justify-content: space-between;
+
+    & > * {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      height: 100%;
+    }
+
+    & > figure {
+      & > img {
+        filter: drop-shadow(0.5rem 0.5rem 0.25rem #000);
+        width: 10rem;
+      }
+    }
   }
 
   & > p {

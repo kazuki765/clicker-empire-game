@@ -1,14 +1,35 @@
-import { component$, Slot, useStylesScoped$ } from "@builder.io/qwik";
+import {
+  component$,
+  Slot,
+  useSignal,
+  useStylesScoped$,
+} from "@builder.io/qwik";
 import style from "./paper.css?inline";
 
 interface Props {
   type: "dark" | "light";
+  clickable?: boolean;
 }
-export default component$(({ type }: Props) => {
+export default component$(({ type, clickable }: Props) => {
+  const isMouseDown = useSignal(false);
   useStylesScoped$(style);
 
-  return (
-    <div class={`${type}`}>
+  const mouseDownClass = isMouseDown.value ? "mouse-down" : "";
+
+  return clickable ? (
+    <div
+      class={`${type} clickable ${mouseDownClass}`}
+      onMouseDown$={() => {
+        isMouseDown.value = true;
+      }}
+      document:onMouseUp$={() => {
+        isMouseDown.value = false;
+      }}
+    >
+      <Slot></Slot>
+    </div>
+  ) : (
+    <div class={`${type} `}>
       <Slot></Slot>
     </div>
   );

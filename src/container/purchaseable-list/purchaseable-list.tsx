@@ -12,7 +12,7 @@ export default component$(() => {
   const purchase = usePurchase();
   return (
     <ul>
-      {items.map((item) => {
+      {items.items.map((item) => {
         return (
           <li key={item.name}>
             <PurchaseableItem

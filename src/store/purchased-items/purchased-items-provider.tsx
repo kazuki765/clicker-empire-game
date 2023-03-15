@@ -27,8 +27,8 @@ export interface PurchasedItemsState {
 export default component$(() => {
   const state = useStore<PurchasedItemsState>({
     flipMachine: 0,
-    etfStock: 5,
-    etfBonds: 2,
+    etfStock: 0,
+    etfBonds: 0,
     lemonadeStand: 0,
     iceCreamTruck: 0,
     house: 0,
