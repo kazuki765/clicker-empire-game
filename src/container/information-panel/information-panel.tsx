@@ -11,9 +11,9 @@ import DateDisplay from "~/components/game-info/date-display/date-display";
 import WalletDisplay from "~/components/game-info/wallet-display/wallet-display";
 import { WalletContext } from "~/store/wallet/wallet-provider";
 import { useNavigate } from "@builder.io/qwik-city";
-import { useUserName } from "../../hook/use-user-name";
-import { useUserAge } from "../../hook/use-user-age";
-import { useElapsedDate } from "~/hook/use-elapsed-date";
+import { useUserName } from "../../hook/user-info/use-user-name";
+import { useUserAge } from "../../hook/user-info/use-user-age";
+import { useElapsedDate } from "~/hook/timer/use-elapsed-date";
 
 export default component$(() => {
   useStylesScoped$(style);

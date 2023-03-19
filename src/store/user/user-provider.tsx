@@ -6,7 +6,7 @@ import {
   useStore,
 } from "@builder.io/qwik";
 
-interface UserState {
+export interface UserState {
   user: {
     initialAge: number;
     name: string;

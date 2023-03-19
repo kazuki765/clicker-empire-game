@@ -22,12 +22,15 @@ export default component$(() => {
 
   return (
     <div class="container">
-      <Paper type="light">
-        <BurgerFlipInfo
-          flipPrice={flipPrice.value}
-          flapCount={flapCount.count}
-        ></BurgerFlipInfo>
-      </Paper>
+      <div>
+        <Paper type="light">
+          <BurgerFlipInfo
+            flipPrice={flipPrice.value}
+            flapCount={flapCount.count}
+          ></BurgerFlipInfo>
+        </Paper>
+      </div>
+
       <figure>
         <img
           document:onMouseUp$={() => {

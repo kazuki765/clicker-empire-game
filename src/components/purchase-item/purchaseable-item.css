@@ -12,15 +12,31 @@ div.flex-wrapper {
 
   & > figure {
     flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
 
     & > img {
       width: 5rem;
     }
   }
 
+  & > div.info-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
   & > div {
     flex: 8;
   }
+}
+
+p.profit {
+  color: green;
+  filter: brightness(2);
 }
 
 div.flex {
@@ -47,6 +63,11 @@ form {
     }
 
     & > figure {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 10rem;
+
       & > img {
         filter: drop-shadow(0.5rem 0.5rem 0.25rem #000);
         width: 10rem;
@@ -61,7 +82,8 @@ form {
   & > input {
     display: block;
     line-height: 1.5;
-    width: 20rem;
+    width: 10rem;
+    text-align: end;
   }
 
   & > div.button-group {

@@ -4,13 +4,18 @@ import style from "./login-form.css?inline";
 import { component$ } from "@builder.io/qwik";
 import { useNavigate } from "@builder.io/qwik-city";
 import Button from "~/components/common/button/button";
-import { useUserName } from "../../hook/use-user-name";
+import { useUserName } from "../../hook/user-info/use-user-name";
+import { useLoadData } from "~/hook/save-data/use-load-data";
+import { useCheckData } from "../../hook/save-data/use-check-data";
 
 export default component$(() => {
   useStylesScoped$(style);
   const userName = useSignal("");
+  const dataExists = useSignal(false);
 
   const [, setName] = useUserName();
+  const load = useLoadData();
+  const checkData = useCheckData();
 
   const navigate = useNavigate();
   return (
@@ -19,8 +24,10 @@ export default component$(() => {
         preventdefault:submit={true}
         onSubmit$={() => {
           if (!userName.value) return;
-          setName(userName.value).then(() => {
-            navigate("/game");
+          load(userName.value).then(() => {
+            setName(userName.value).then(() => {
+              navigate("/game");
+            });
           });
         }}
       >
@@ -33,18 +40,40 @@ export default component$(() => {
             type="text"
             id="name"
             name="name"
-            onChange$={(e) => (userName.value = e.target.value)}
+            onChange$={(e) => {
+              userName.value = e.target.value;
+            }}
+            onInput$={(e) => {
+              const value = (e.target as HTMLInputElement).value;
+              checkData(value).then((exists) => {
+                dataExists.value = exists;
+              });
+            }}
           />
         </div>
 
-        <div>
+        <div class="button-wrapper">
           <Button
             type="submit"
             size="medium"
             color="primary"
+            disabled={dataExists.value === false}
             onClick$={() => {}}
           >
-            ゲーム開始
+            続きから
+          </Button>
+          <Button
+            type="button"
+            size="medium"
+            color="secondary"
+            onClick$={() => {
+              if (!userName.value) return;
+              setName(userName.value).then(() => {
+                navigate("/game");
+              });
+            }}
+          >
+            最初から
           </Button>
         </div>
       </form>
