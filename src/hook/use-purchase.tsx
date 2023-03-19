@@ -3,6 +3,7 @@ import { PurchasedItemsContext } from "~/store/purchased-items/purchased-items-p
 import { WalletContext } from "~/store/wallet/wallet-provider";
 import { usePurchaseItemList } from "./use-purchase-items";
 import type { PurchasedItemsState } from "../store/purchased-items/purchased-items-provider";
+import { useEtfStockPrice } from "./use-etf-stock-price";
 interface PurchaseArgs {
   name: string;
   buyAmount: number;
@@ -14,7 +15,9 @@ export const usePurchase = () => {
 
   const list = usePurchaseItemList();
 
-  const purchase = $((args: PurchaseArgs) => {
+  const calcEtfPrice = useEtfStockPrice();
+
+  const purchase = $(async (args: PurchaseArgs) => {
     const target = list.items.find((i) => i.name === args.name);
     if (!target) {
       console.warn("");
@@ -25,6 +28,12 @@ export const usePurchase = () => {
     }
     if (wallet.amount < args.price * args.buyAmount) {
       return;
+    }
+    if (target.name === "etfStock") {
+      const price = await calcEtfPrice(target.amount, args.buyAmount);
+      if (wallet.amount < price) {
+        return;
+      }
     }
 
     purchased[args.name as keyof PurchasedItemsState] += args.buyAmount;

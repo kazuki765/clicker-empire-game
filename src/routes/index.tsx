@@ -5,7 +5,7 @@ import {
 } from "@builder.io/qwik";
 import style from "./index.css?inline";
 import LoginForm from "~/container/login-form/login-form";
-import { useTimer } from "~/hook/use-timer";
+import { useTimer } from "~/hook/timer/use-timer";
 
 export default component$(() => {
   useStylesScoped$(style);

@@ -8,6 +8,7 @@ import Paper from "../common/paper/paper";
 import style from "./purchaseable-item.css?inline";
 import Button from "../common/button/button";
 import Integer from "../common/integer/integer";
+import { useEtfStockPrice } from "~/hook/use-etf-stock-price";
 export interface PurchaseableItemType {
   name: string;
   displayName: string;
@@ -28,7 +29,8 @@ interface Props {
 
 export default component$(({ item, onPurchase }: Props) => {
   const isListOpen = useSignal<boolean>(true);
-  const buyAmount = useSignal<number>(1);
+  const buyAmount = useSignal<number>(0);
+  const etfPrice = useEtfStockPrice();
   useStylesScoped$(style);
 
   if (isListOpen.value) {
@@ -39,7 +41,7 @@ export default component$(({ item, onPurchase }: Props) => {
             <figure>
               <img src={item.thumbnailUrl}></img>
             </figure>
-            <div>
+            <div class="info-wrapper">
               <div class="flex">
                 <h3>{item.displayName}</h3>
                 <h4>{item.amount}</h4>
@@ -48,7 +50,7 @@ export default component$(({ item, onPurchase }: Props) => {
                 <h4>
                   ¥ <Integer num={item.price}></Integer>
                 </h4>
-                <p>
+                <p class="profit">
                   ¥ <Integer num={item.profit}></Integer> / {item.timing}
                 </p>
               </div>
@@ -69,7 +71,7 @@ export default component$(({ item, onPurchase }: Props) => {
                 price: item.price,
                 name: item.name,
               }).then(() => {
-                buyAmount.value = 1;
+                buyAmount.value = 0;
               });
             }}
           >
@@ -89,18 +91,21 @@ export default component$(({ item, onPurchase }: Props) => {
             <input
               type="number"
               name="amount"
+              max={item.maxAmount - item.amount}
+              min="0"
               value={buyAmount.value}
               onChange$={(e) => {
                 const value = parseInt(e.target.value);
                 if (!value) return;
-                if (value > item.maxAmount - item.amount) return;
-                if (value < 0) {
-                  buyAmount.value = 0;
-                  return;
-                }
                 buyAmount.value = value;
               }}
             />
+            <p>
+              total: ¥{" "}
+              {item.name === "etfStock"
+                ? etfPrice(item.amount, item.amount + buyAmount.value)
+                : buyAmount.value * item.price}
+            </p>
 
             <div class="button-group">
               <Button

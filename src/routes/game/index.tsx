@@ -9,7 +9,7 @@ import UserInformation from "~/container/information-panel/information-panel";
 import BurgerFliper from "~/container/burger-fliper/burger-fliper";
 import ButtonGroupWithSaveAndReset from "~/container/button-group-with-save-and-reset/button-group-with-save-and-reset";
 import PurchaseableList from "~/container/purchaseable-list/purchaseable-list";
-import { useTimer } from "../../hook/use-timer";
+import { useTimer } from "../../hook/timer/use-timer";
 import { useAutoProfit } from "../../hook/use-auto-profit";
 
 export default component$(() => {

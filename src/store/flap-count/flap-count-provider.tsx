@@ -6,7 +6,7 @@ import {
   useStore,
 } from "@builder.io/qwik";
 
-interface FlapCountState {
+export interface FlapCountState {
   count: number;
 }
 export const FlapCountContext =

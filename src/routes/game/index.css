@@ -4,7 +4,7 @@ div {
     gap: 1rem;
     flex: 10;
     flex-wrap: wrap;
-    min-width: 700px;
+    min-width: 30rem;
     height: 100%;
     margin: 1rem;
   }
@@ -15,9 +15,9 @@ div {
     min-height: 100%;
     gap: 1rem;
     flex: 6;
+
     & > div {
       &:nth-child(1) {
-        flex-grow: 2;
       }
 
       &:nth-child(2) {
@@ -35,7 +35,7 @@ div {
     display: flex;
     gap: 1rem;
     flex: 4;
-    min-width: 100px;
+    min-width: 20rem;
   }
 }
 

@@ -12,3 +12,10 @@ form {
   height: 100%;
   gap: 1rem;
 }
+
+div.button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}

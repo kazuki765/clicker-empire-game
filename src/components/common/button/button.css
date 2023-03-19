@@ -51,4 +51,9 @@ button {
   &.down {
     filter: brightness(0.9);
   }
+
+  &[disabled] {
+    filter: brightness(0.5);
+    cursor: not-allowed;
+  }
 }

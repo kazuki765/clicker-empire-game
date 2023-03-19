@@ -6,12 +6,12 @@ import {
   useContextProvider,
 } from "@builder.io/qwik";
 
-interface WalletState {
+export interface WalletState {
   amount: number;
 }
 export const WalletContext = createContextId<WalletState>("wallet-context");
 export default component$(() => {
-  const state = useStore<WalletState>({ amount: 10000000000 });
+  const state = useStore<WalletState>({ amount: 50000 });
 
   useContextProvider(WalletContext, state);
   return <Slot />;

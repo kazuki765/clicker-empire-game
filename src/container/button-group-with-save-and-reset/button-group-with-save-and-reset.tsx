@@ -1,7 +1,7 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import IconButton from "~/components/common/icon-button/icon-button";
 import style from "./button-group-with-save-and-reset.css?inline";
-import { useSaveData } from "~/hook/use-save-data";
+import { useSaveData } from "~/hook/save-data/use-save-data";
 
 export default component$(() => {
   useStylesScoped$(style);

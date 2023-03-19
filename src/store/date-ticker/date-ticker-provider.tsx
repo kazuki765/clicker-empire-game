@@ -1,7 +1,7 @@
 import { Slot, useContextProvider, useStore } from "@builder.io/qwik";
 import { component$, useVisibleTask$, createContextId } from "@builder.io/qwik";
 
-interface TickerState {
+export interface TickerState {
   elapsedDate: number;
   running: boolean;
 }

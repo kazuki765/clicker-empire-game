@@ -8,30 +8,34 @@ export interface ButtonProps {
   color?: "primary" | "secondary" | "gray";
   size: "small" | "medium" | "large";
   onClick$: PropFunction<(e: QwikMouseEvent) => void>;
+  disabled?: boolean;
 }
-export default component$(({ type, onClick$, color, size }: ButtonProps) => {
-  const state = useStore({ isDown: false });
+export default component$(
+  ({ type, onClick$, color, size, disabled }: ButtonProps) => {
+    const state = useStore({ isDown: false });
 
-  useStylesScoped$(style);
+    useStylesScoped$(style);
 
-  const isDownClass = state.isDown ? "down" : "";
+    const isDownClass = state.isDown ? "down" : "";
 
-  return (
-    <button
-      // MEMO: これ神
-      document:onMouseUp$={() => {
-        state.isDown = false;
-      }}
-      class={`${color} ${size} ${isDownClass}`}
-      type={type}
-      onClick$={async (e) => {
-        await onClick$(e);
-      }}
-      onMouseDown$={() => {
-        state.isDown = true;
-      }}
-    >
-      <Slot />
-    </button>
-  );
-});
+    return (
+      <button
+        // MEMO: これ神
+        document:onMouseUp$={() => {
+          state.isDown = false;
+        }}
+        class={`${color} ${size} ${isDownClass}`}
+        type={type}
+        onClick$={async (e) => {
+          await onClick$(e);
+        }}
+        onMouseDown$={() => {
+          state.isDown = true;
+        }}
+        disabled={disabled}
+      >
+        <Slot />
+      </button>
+    );
+  }
+);
