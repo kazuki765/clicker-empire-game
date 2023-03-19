@@ -20,7 +20,6 @@ export const useLoadData = () => {
     const data = localStorage.getItem("user-data-" + name);
     const parsed: SaveData | null = data ? JSON.parse(data) : null;
 
-    console.log(parsed);
     if (parsed == null) return;
     user.user = parsed.user.user;
     wallet.amount = parsed.wallet.amount;
