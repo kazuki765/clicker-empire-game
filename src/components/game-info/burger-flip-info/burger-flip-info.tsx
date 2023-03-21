@@ -1,6 +1,6 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import style from "./burger-flip-info.css?inline";
-import Integer from "../common/integer/integer";
+import Integer from "../../common/integer/integer";
 
 interface Props {
   flipPrice: number;

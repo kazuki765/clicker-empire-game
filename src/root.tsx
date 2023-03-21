@@ -20,6 +20,21 @@ export default component$(() => {
     <QwikCityProvider>
       <head>
         <meta charSet="utf-8" />
+        <meta
+          property="og:url"
+          content="https://clicker-empire-game.pages.dev/"
+        />
+        <meta property="og:type" content="product" />
+        <meta
+          property="og:title"
+          content="Recurtion プロジェクト Click Empire Game"
+        />
+        <meta
+          property="og:description"
+          content="Recurtionのお題のClick Empire GameというゲームをQwikCityを使って作成しました。"
+        />
+        <meta property="og:site_name" content="Click Empire Game" />
+        <meta property="og:image" content="/thumbnail.png" />
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
       </head>
