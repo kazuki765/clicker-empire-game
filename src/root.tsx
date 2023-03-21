@@ -27,14 +27,17 @@ export default component$(() => {
         <meta property="og:type" content="product" />
         <meta
           property="og:title"
-          content="Recurtion プロジェクト Click Empire Game"
+          content="RecurtionプロジェクトClick Empire Game"
         />
         <meta
           property="og:description"
           content="Recurtionのお題のClick Empire GameというゲームをQwikCityを使って作成しました。"
         />
         <meta property="og:site_name" content="Click Empire Game" />
-        <meta property="og:image" content="/thumbnail.png" />
+        <meta
+          property="og:image"
+          content="https://github.com/kazuki765/clicker-empire-game/blob/main/public/thumbnail.png"
+        />
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
       </head>
