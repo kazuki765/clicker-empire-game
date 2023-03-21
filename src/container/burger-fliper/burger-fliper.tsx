@@ -8,7 +8,7 @@ import Paper from "~/components/common/paper/paper";
 
 import style from "./burger-fliper.css?inline";
 import { useFlipHamburger } from "~/hook/use-flip-hamburger";
-import BurgerFlipInfo from "~/components/burger-flip-info/burger-flip-info";
+import BurgerFlipInfo from "~/components/game-info/burger-flip-info/burger-flip-info";
 import { useFlipPrice } from "~/hook/use-flip-price";
 import { FlapCountContext } from "~/store/flap-count/flap-count-provider";
 export default component$(() => {
